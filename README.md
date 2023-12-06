@@ -18,10 +18,7 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
+# Use watch mode to test locally, start command is being used to deploy in Cyclic
 $ npm run start:dev
 
 # production mode
