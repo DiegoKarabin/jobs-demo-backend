@@ -1,6 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsAlphanumeric, IsInt, IsOptional, Max, Min } from 'class-validator';
+import {
+  IsAlphanumeric,
+  IsEnum,
+  IsInt,
+  IsOptional,
+  Max,
+  Min,
+} from 'class-validator';
 
 export enum SortField {
   salary = 'salary',
@@ -73,7 +80,7 @@ export class QueryDto {
     type: [SortField],
   })
   @IsOptional()
-  @IsAlphanumeric()
+  @IsEnum(SortField)
   sort_field?: SortField;
 
   @ApiProperty({
@@ -82,6 +89,6 @@ export class QueryDto {
     type: [SortDirection],
   })
   @IsOptional()
-  @IsAlphanumeric()
+  @IsEnum(SortDirection)
   sort_direction?: SortDirection;
 }
