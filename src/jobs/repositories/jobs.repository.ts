@@ -136,10 +136,6 @@ export class JobsRepository {
       jobs = jobs.filter((job: Job) => job.level == queryDto.level);
     }
 
-    jobs.forEach((job: Job) => {
-      console.log(typeof job.created_at);
-    });
-
     if (queryDto.sort_field) {
       jobs.sort((jobA: Job, jobB: Job) => {
         if (queryDto.sort_field == SortField.created_at) {
