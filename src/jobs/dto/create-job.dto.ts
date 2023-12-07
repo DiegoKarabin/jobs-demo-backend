@@ -12,6 +12,7 @@ enum Level {
   junior = 'Junior',
   mid_level = 'Mid Level',
   senior = 'Senior',
+  expert = 'Expert',
 }
 
 export class CreateJobDto {
