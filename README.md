@@ -6,7 +6,7 @@ Assessment required by Soluciones JM
 ### Author
 Diego Karabin
 
-## Node version recommended
+## Recommended node version
 20.10.0
 
 ## Installation
