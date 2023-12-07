@@ -136,13 +136,20 @@ export class JobsRepository {
       jobs = jobs.filter((job: Job) => job.level == queryDto.level);
     }
 
+    jobs.forEach((job: Job) => {
+      console.log(typeof job.created_at);
+    });
+
     if (queryDto.sort_field) {
       jobs.sort((jobA: Job, jobB: Job) => {
         if (queryDto.sort_field == SortField.created_at) {
+          const dateATime = new Date(jobA.created_at).getTime();
+          const dateBTime = new Date(jobB.created_at).getTime();
+
           if (queryDto.sort_direction == SortDirection.asc) {
-            return jobA.created_at < jobB.created_at ? -1 : 1;
+            return dateATime - dateBTime;
           } else {
-            return jobA.created_at > jobB.created_at ? -1 : 1;
+            return dateBTime - dateATime;
           }
         }
 
