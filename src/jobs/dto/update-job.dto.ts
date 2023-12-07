@@ -1,13 +1,22 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsPositive } from 'class-validator';
+import {
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsPositive,
+  MaxLength,
+} from 'class-validator';
+import { Level } from 'src/enums/Level';
 
 export class UpdateJobDto {
   @ApiProperty()
   @IsNotEmpty()
+  @MaxLength(30)
   title: string;
 
   @ApiProperty()
   @IsNotEmpty()
+  @MaxLength(100)
   description: string;
 
   @ApiProperty()
@@ -17,5 +26,6 @@ export class UpdateJobDto {
 
   @ApiProperty()
   @IsNotEmpty()
-  level: string;
+  @IsEnum(Level)
+  level: Level;
 }

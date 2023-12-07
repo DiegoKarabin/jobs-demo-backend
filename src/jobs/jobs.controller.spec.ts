@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { JobsController } from './jobs.controller';
 import { JobsService } from './jobs.service';
+import { Level } from 'src/enums/Level';
 
 describe('JobsController', () => {
   let controller: JobsController;
@@ -38,7 +39,7 @@ describe('JobsController', () => {
     const dto = {
       title: 'foo',
       description: 'bar',
-      level: 'Junior',
+      level: Level.junior,
       salary: 1234,
     };
 
@@ -53,7 +54,7 @@ describe('JobsController', () => {
     const dto = {
       title: 'foo',
       description: 'bar',
-      level: 'Junior',
+      level: Level.junior,
       salary: 1234,
     };
 

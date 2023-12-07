@@ -8,16 +8,9 @@ import {
   Max,
   Min,
 } from 'class-validator';
-
-export enum SortField {
-  salary = 'salary',
-  created_at = 'created_at',
-}
-
-export enum SortDirection {
-  asc = 'asc',
-  desc = 'desc',
-}
+import { Level } from 'src/enums/Level';
+import { SortDirection } from 'src/enums/SortDirection';
+import { SortField } from 'src/enums/SortField';
 
 export class QueryDto {
   @ApiProperty({
@@ -73,6 +66,15 @@ export class QueryDto {
   @Min(0)
   @Type(() => Number)
   max_salary?: number;
+
+  @ApiProperty({
+    description: 'level required for this job',
+    required: false,
+    type: [Level],
+  })
+  @IsOptional()
+  @IsEnum(Level)
+  level?: Level;
 
   @ApiProperty({
     description: 'field for sorting jobs',

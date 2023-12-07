@@ -3,10 +3,12 @@ import { DataService } from './data-service.service';
 import { Job } from '../entities/job.entity';
 import { lastValueFrom } from 'rxjs';
 import { NotFoundException } from '@nestjs/common';
-import { QueryDto, SortDirection, SortField } from '../dto/query.dto';
+import { QueryDto } from '../dto/query.dto';
 import { PaginationPage } from '../../utils/pagination/pagination-page';
 import querystringify from '../../utils/querystringify';
 import { PaginationLinks } from '../../utils/pagination/pagination-links';
+import { SortField } from 'src/enums/SortField';
+import { SortDirection } from 'src/enums/SortDirection';
 
 @Injectable()
 export class JobsRepository {
@@ -128,6 +130,10 @@ export class JobsRepository {
 
     if (queryDto.max_salary) {
       jobs = jobs.filter((job: Job) => job.salary <= queryDto.max_salary);
+    }
+
+    if (queryDto.level) {
+      jobs = jobs.filter((job: Job) => job.level == queryDto.level);
     }
 
     if (queryDto.sort_field) {

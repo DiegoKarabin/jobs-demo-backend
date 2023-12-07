@@ -6,14 +6,7 @@ import {
   IsPositive,
   MaxLength,
 } from 'class-validator';
-
-enum Level {
-  entry_level = 'Entry Level',
-  junior = 'Junior',
-  mid_level = 'Mid Level',
-  senior = 'Senior',
-  expert = 'Expert',
-}
+import { Level } from 'src/enums/Level';
 
 export class CreateJobDto {
   @ApiProperty()

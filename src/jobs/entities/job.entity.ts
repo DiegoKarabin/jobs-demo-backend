@@ -1,8 +1,10 @@
+import { Level } from 'src/enums/Level';
+
 export class Job {
   id: number;
   title: string;
   description: string;
   salary: number;
-  level: string;
+  level: Level;
   created_at: Date;
 }
